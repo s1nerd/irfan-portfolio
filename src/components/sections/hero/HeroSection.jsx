@@ -14,7 +14,14 @@ export default function HeroSection() {
       initial="hidden"
       animate="visible"
       variants={staggerContainer()}
-      className="relative flex min-h-screen items-center overflow-hidden"
+      className="
+        relative
+        overflow-hidden
+        py-24
+        lg:flex
+        lg:min-h-screen
+        lg:items-center
+      "
     >
       {/* Grid Background */}
       <div
@@ -35,7 +42,19 @@ export default function HeroSection() {
 
       <Container
         as="div"
-        className="relative z-10 grid min-h-screen items-center gap-20 py-28 lg:grid-cols-2"
+        className="
+          relative
+          z-10
+          grid
+          items-center
+          gap-16
+          py-8
+          sm:py-12
+          lg:min-h-screen
+          lg:grid-cols-2
+          lg:gap-20
+          lg:py-28
+        "
       >
         <HeroContent />
 
@@ -45,7 +64,14 @@ export default function HeroSection() {
       {/* Scroll Indicator */}
       <motion.div
         variants={fadeUp(0.8)}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          hidden
+          -translate-x-1/2
+          lg:flex
+        "
       >
         <div className="flex flex-col items-center gap-3 text-slate-400">
           <span className="text-xs uppercase tracking-[0.3em]">Scroll</span>

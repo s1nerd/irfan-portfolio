@@ -55,7 +55,15 @@ export default function HeroImage() {
             hover
             color="blue"
             padding="lg"
-            className="relative w-full max-w-95 overflow-hidden rounded-4xl"
+            className="
+            relative
+            w-full
+            max-w-sm
+            sm:max-w-md
+            lg:max-w-95
+            overflow-hidden
+            rounded-4xl
+            "
           >
             {/* Status Indicator */}
 
@@ -71,7 +79,12 @@ export default function HeroImage() {
                 <img
                   src={profile.avatar}
                   alt={profile.name}
-                  className="h-44 w-44 rounded-full object-cover transition duration-500 hover:scale-[1.03]"
+                  className="h-36
+                  w-36
+                  sm:h-40
+                  sm:w-40
+                  lg:h-44
+                  lg:w-44 rounded-full object-cover transition duration-500 hover:scale-[1.03]"
                 />
               </div>
             </motion.div>
@@ -93,7 +106,12 @@ export default function HeroImage() {
 
             <motion.div
               variants={staggerContainer(0.08)}
-              className="mt-8 space-y-4"
+              className="
+              mt-6
+              space-y-3
+              lg:mt-8
+              lg:space-y-4
+              "
             >
               {information.map((item) => {
                 const Icon = item.icon;
