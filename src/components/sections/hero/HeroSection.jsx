@@ -1,7 +1,3 @@
-import { motion } from "framer-motion";
-
-import { fadeUp } from "@/animations/fade";
-import { staggerContainer } from "@/animations/stagger";
 import Container from "@/components/layout/Container";
 
 import HeroContent from "./HeroContent";
@@ -9,17 +5,15 @@ import HeroImage from "./HeroImage";
 
 export default function HeroSection() {
   return (
-    <motion.section
+    <section
       id="home"
-      initial="hidden"
-      animate="visible"
-      variants={staggerContainer()}
       className="
         relative
-        overflow-hidden
-        py-24
+        overflow-x-hidden
+        py-16
+        sm:py-20
         lg:flex
-        lg:min-h-screen
+        lg:min-h-svh
         lg:items-center
       "
     >
@@ -48,12 +42,12 @@ export default function HeroSection() {
           grid
           items-center
           gap-16
-          py-8
-          sm:py-12
-          lg:min-h-screen
+          py-6
+          sm:py-8
+          lg:min-h-svh
           lg:grid-cols-2
           lg:gap-20
-          lg:py-28
+          lg:py-24
         "
       >
         <HeroContent />
@@ -62,8 +56,7 @@ export default function HeroSection() {
       </Container>
 
       {/* Scroll Indicator */}
-      <motion.div
-        variants={fadeUp(0.8)}
+      <div
         className="
           absolute
           bottom-8
@@ -77,21 +70,10 @@ export default function HeroSection() {
           <span className="text-xs uppercase tracking-[0.3em]">Scroll</span>
 
           <div className="flex h-12 w-7 justify-center rounded-full border border-white/20">
-            <motion.div
-              animate={{
-                y: [0, 14, 0],
-              }}
-              transition={{
-                duration: 1.8,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "easeInOut",
-              }}
-              className="mt-2 h-2 w-2 rounded-full bg-blue-400"
-            />
+            <div className="mt-2 h-2 w-2 rounded-full bg-blue-400" />
           </div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }

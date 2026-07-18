@@ -1,8 +1,3 @@
-import { motion } from "framer-motion";
-
-import { fadeLeft, fadeUp } from "@/animations/fade";
-import { staggerContainer, staggerItem } from "@/animations/stagger";
-
 import Badge from "@/components/common/Badge";
 import GlassCard from "@/components/common/GlassCard";
 
@@ -31,10 +26,10 @@ const quickInfos = [
 
 export default function HeroContent() {
   return (
-    <motion.div className="space-y-12" variants={staggerContainer()}>
+    <div className="space-y-12">
       {/* Status */}
 
-      <motion.div variants={fadeLeft()}>
+      <div>
         <Badge
           variant="success"
           size="md"
@@ -44,11 +39,11 @@ export default function HeroContent() {
 
           {profile.available ? "Available for Work" : "Currently Unavailable"}
         </Badge>
-      </motion.div>
+      </div>
 
       {/* Greeting */}
 
-      <motion.div className="space-y-6" variants={fadeUp(0.1)}>
+      <div className="space-y-6">
         <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-400">
           Hello, I'm
         </p>
@@ -64,16 +59,13 @@ export default function HeroContent() {
         <p className="max-w-2xl text-lg leading-9 text-slate-300">
           {profile.subtitle}
         </p>
-      </motion.div>
+      </div>
 
       {/* Quick Info */}
 
-      <motion.div
-        variants={staggerContainer(0.08, 0)}
-        className="grid gap-4 sm:grid-cols-3"
-      >
+      <div className="grid gap-4 sm:grid-cols-3">
         {quickInfos.map((item) => (
-          <motion.div key={item.id} variants={staggerItem()}>
+          <div key={item.id}>
             <GlassCard padding="md" hover className="h-full">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
                 {item.label}
@@ -83,9 +75,9 @@ export default function HeroContent() {
                 {item.value}
               </h3>
             </GlassCard>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Actions */}
 
@@ -93,9 +85,9 @@ export default function HeroContent() {
 
       {/* Social */}
 
-      <motion.div variants={fadeUp(0.6)}>
+      <div>
         <HeroSocials />
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

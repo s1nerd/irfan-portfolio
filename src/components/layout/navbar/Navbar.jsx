@@ -17,17 +17,21 @@ export default function Navbar({ className = "" }) {
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <header
       className={clsx(
-        "sticky top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-white/10 bg-slate-950/80 shadow-lg shadow-black/20 backdrop-blur-2xl"
+          ? "border-b border-white/10 bg-slate-950/80 shadow-lg shadow-black/20 backdrop-blur-2xl will-change-[backdrop-filter]"
           : "border-b border-transparent bg-transparent",
         className,
       )}

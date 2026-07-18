@@ -16,9 +16,8 @@ export default function ExperienceTimeline() {
   return (
     <motion.section
       variants={fadeUp()}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      initial="visible"
+      animate="visible"
       className="mb-28"
     >
       {/* Header */}
@@ -60,8 +59,6 @@ export default function ExperienceTimeline() {
             {/* Card */}
 
             <GlassCard className="rounded-4xl p-8 transition duration-300 hover:border-blue-500/30 hover:shadow-[0_20px_60px_rgba(37,99,235,.15)]">
-              {/* Top */}
-
               <div className="flex flex-wrap items-start justify-between gap-6">
                 <div>
                   <h3 className="text-3xl font-bold text-white">
@@ -98,13 +95,9 @@ export default function ExperienceTimeline() {
                 </div>
               </div>
 
-              {/* Description */}
-
               <p className="mt-8 leading-8 text-slate-300">
                 {item.description}
               </p>
-
-              {/* Responsibilities */}
 
               <div className="mt-10">
                 <h4 className="mb-5 flex items-center gap-2 text-lg font-semibold text-white">
@@ -119,14 +112,11 @@ export default function ExperienceTimeline() {
                       className="flex items-start gap-4 text-slate-300"
                     >
                       <span className="mt-2 h-2.5 w-2.5 rounded-full bg-blue-400" />
-
                       <span className="leading-7">{achievement}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-
-              {/* Tech Stack */}
 
               {item.skills && item.skills.length > 0 && (
                 <div className="mt-10 flex flex-wrap gap-3">

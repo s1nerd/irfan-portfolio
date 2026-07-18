@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import clsx from "clsx";
 import { Menu, X } from "lucide-react";
 
@@ -16,6 +17,21 @@ export default function MobileMenu({ className = "" }) {
         .sort((a, b) => a.order - b.order),
     [],
   );
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [isOpen]);
 
   function toggleMenu() {
     setIsOpen((prev) => !prev);
@@ -38,26 +54,45 @@ export default function MobileMenu({ className = "" }) {
         {isOpen ? <X size={26} /> : <Menu size={26} />}
       </button>
 
-      {isOpen && (
-        <>
-          <div
-            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
-            onClick={closeMenu}
-          />
+      {isOpen &&
+        createPortal(
+          <>
+            {/* Overlay */}
+            <div
+              className="fixed inset-0 z-9998 bg-black/60 backdrop-blur-sm"
+              onClick={closeMenu}
+            />
 
-          <nav
-            id="mobile-navigation"
-            aria-label="Mobile Navigation"
-            className="fixed right-0 top-0 z-50 flex h-full w-72 flex-col gap-6 border-l border-white/10 bg-slate-950 p-8 shadow-2xl"
-          >
-            {menuItems.map((item) => (
-              <NavItem key={item.id} to={item.path} onClick={closeMenu}>
-                {item.label}
-              </NavItem>
-            ))}
-          </nav>
-        </>
-      )}
+            {/* Drawer */}
+            <nav
+              id="mobile-navigation"
+              aria-label="Mobile Navigation"
+              className="fixed inset-y-0 right-0 z-9999 flex w-72 flex-col border-l border-white/10 bg-slate-950 p-8 shadow-2xl"
+            >
+              <div className="mb-8 flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-white">Navigation</h2>
+
+                <button
+                  type="button"
+                  onClick={closeMenu}
+                  className="rounded-lg p-2 text-white transition hover:bg-white/10"
+                  aria-label="Close navigation"
+                >
+                  <X size={22} />
+                </button>
+              </div>
+
+              <div className="flex flex-1 flex-col gap-6">
+                {menuItems.map((item) => (
+                  <NavItem key={item.id} to={item.path} onClick={closeMenu}>
+                    {item.label}
+                  </NavItem>
+                ))}
+              </div>
+            </nav>
+          </>,
+          document.body,
+        )}
     </div>
   );
 }

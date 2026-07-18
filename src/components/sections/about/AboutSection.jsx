@@ -12,19 +12,13 @@ export default function AboutSection() {
     <motion.section
       id="about"
       className="relative py-32"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.2,
-      }}
+      initial="visible"
+      animate="visible"
       variants={staggerContainer()}
     >
       <Container as="div" className="space-y-20">
         <AboutHeader />
-
         <AboutContent />
-
         <AboutStats />
       </Container>
     </motion.section>
