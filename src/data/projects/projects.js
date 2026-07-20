@@ -100,41 +100,41 @@ const projects = [
     //----------------------------------
 
     shortDescription:
-      "Integrated internal platform for IT Helpdesk, Inventory, Asset Management, Procurement, and Enterprise Operations.",
+      "Integrated enterprise platform for IT Helpdesk, Inventory, Asset Management, Procurement, and Operational Management.",
 
     // Dipertahankan sementara agar ProjectCard & ProjectModal tidak rusak
     description:
-      "AksaraOps is an enterprise internal web application developed to streamline IT operations by integrating ticketing, inventory management, device management, procurement, audit trails, and real-time notifications into a single platform.",
+      "AksaraOps is an enterprise internal web application developed to centralize IT operations by integrating IT Helpdesk, Inventory, Device Management, Procurement, Operational Dashboard, Audit Trail, and Real-Time Notifications into a single platform.",
 
     overview:
-      "AksaraOps is an enterprise internal web application developed to centralize IT operational activities into one integrated platform. It combines IT Helpdesk, Inventory, Device Management, Procurement, Notifications, Dashboard, and Audit Trail to improve operational efficiency.",
+      "AksaraOps is an enterprise internal platform designed to streamline IT operations and enterprise asset management across multiple business units. The system centralizes IT Helpdesk, Inventory, Device Lifecycle Management, Procurement, Operational Dashboard, Notifications, and Audit Trail to improve operational efficiency, increase data visibility, and simplify daily business processes.",
 
     businessProblem: {
       context:
-        "PT Mensana Aneka Satwa is a holding company overseeing 8 subsidiary companies and 32 branches across Indonesia. Before AksaraOps, all IT operational activities were handled manually without an integrated internal system.",
+        "PT Mensana Aneka Satwa operates multiple subsidiary companies and branch offices across Indonesia. As business operations expanded, IT support, inventory, asset management, and procurement were handled using separate manual processes. This fragmented approach reduced operational visibility, delayed response times, and made it increasingly difficult to maintain consistent records across the organization.",
 
       workflow: [
-        "IT support requests managed through WhatsApp.",
-        "Inventory recorded manually using Microsoft Excel.",
-        "Procurement submitted via Google Docs with printed approvals.",
-        "Device ownership and maintenance tracked manually.",
-        "Operational documents scattered across multiple folders and platforms.",
+        "IT support requests were submitted and tracked through WhatsApp conversations without a centralized ticketing system.",
+        "Inventory and asset records were maintained in multiple Microsoft Excel files, making synchronization difficult.",
+        "Procurement requests relied on Google Forms, spreadsheets, and printed approval documents.",
+        "Device ownership, warranties, and maintenance history were recorded manually without lifecycle tracking.",
+        "Operational information was distributed across different documents, folders, and communication channels.",
       ],
 
       challenges: [
-        "No centralized IT operation platform.",
-        "Manual inventory and asset management.",
-        "Difficult ticket monitoring across all branches.",
-        "High risk of human error and inconsistent records.",
-        "Time-consuming reporting and audit preparation.",
+        "No centralized platform to manage enterprise IT operations.",
+        "Inventory and asset information relied on manual record keeping.",
+        "Limited visibility into ticket progress across multiple branches.",
+        "High risk of duplicated data and inconsistent operational records.",
+        "Generating operational reports and audit evidence required significant manual effort.",
       ],
 
       impacts: [
-        "Slower response to IT issues.",
-        "Reduced operational visibility.",
-        "Inefficient administrative workflows.",
-        "Limited asset traceability.",
-        "Increasing workload as the organization expanded.",
+        "Longer response times for IT incidents and service requests.",
+        "Limited visibility into daily operational activities.",
+        "Administrative processes required unnecessary manual coordination.",
+        "Difficulty tracking asset ownership and lifecycle history.",
+        "Operational complexity increased as the organization continued to grow.",
       ],
     },
 
@@ -468,49 +468,49 @@ const projects = [
         id: 1,
         title: "IT Helpdesk",
         description:
-          "Manage incident reports, service requests, ticket assignments, priorities, and SLA monitoring.",
+          "Centralized service desk module for managing incidents, service requests, technician assignments, SLA monitoring, ticket priorities, and resolution tracking.",
       },
 
       {
         id: 2,
         title: "Inventory",
         description:
-          "Manage stock movement, warehouse inventory, and item transactions.",
+          "Manage inventory levels, warehouse stock, item movements, stock adjustments, and transaction history through a centralized inventory system.",
       },
 
       {
         id: 3,
         title: "Device Management",
         description:
-          "Track company devices, ownership history, lifecycle, and specifications.",
+          "Manage enterprise assets by tracking hardware specifications, ownership history, warranty information, maintenance schedules, and complete device lifecycle.",
       },
 
       {
         id: 4,
         title: "Procurement",
         description:
-          "Handle purchase requests, approvals, and procurement workflows.",
+          "Digitize procurement activities with structured purchase requests, approval workflows, vendor coordination, and purchasing status monitoring.",
       },
 
       {
         id: 5,
         title: "Realtime Notification",
         description:
-          "Deliver real-time notifications across all enterprise modules using Socket.IO.",
+          "Provide instant system notifications across enterprise modules using Socket.IO to improve operational awareness and communication.",
       },
 
       {
         id: 6,
-        title: "Dashboard",
+        title: "Operational Dashboard",
         description:
-          "Provide operational summaries, KPIs, and real-time statistics.",
+          "Present operational KPIs, ticket statistics, inventory summaries, procurement insights, and other real-time business information through a unified dashboard.",
       },
 
       {
         id: 7,
         title: "Audit Trail",
         description:
-          "Maintain complete activity history for accountability and compliance.",
+          "Record every important system activity to support operational transparency, accountability, security auditing, and compliance requirements.",
       },
     ],
 
@@ -521,33 +521,33 @@ const projects = [
     features: [
       {
         id: 1,
-        title: "IT Helpdesk",
+        title: "Centralized IT Helpdesk",
         description:
-          "Manage incident reports, service requests, ticket assignments, priorities, and status tracking.",
+          "Provide a centralized service desk for incident reporting, service requests, ticket assignment, SLA monitoring, priority management, and complete ticket lifecycle tracking.",
       },
       {
         id: 2,
-        title: "Inventory Management",
+        title: "Inventory & Warehouse Management",
         description:
-          "Monitor inventory movement, stock levels, and warehouse assets in one centralized module.",
+          "Manage inventory levels, warehouse locations, stock movements, item transactions, and inventory history through a centralized inventory management system.",
       },
       {
         id: 3,
-        title: "Device Management",
+        title: "Enterprise Device Lifecycle",
         description:
-          "Track company devices, ownership history, specifications, and lifecycle.",
+          "Track enterprise hardware throughout its lifecycle, including specifications, ownership, warranty information, maintenance records, and asset history.",
       },
       {
         id: 4,
-        title: "Procurement Workflow",
+        title: "Digital Procurement Workflow",
         description:
-          "Handle purchase requests, approvals, procurement tracking, and vendor management.",
+          "Digitize procurement requests with structured approval workflows, purchasing status tracking, vendor management, and centralized procurement records.",
       },
       {
         id: 5,
-        title: "Realtime Notification System",
+        title: "Real-Time Notification Center",
         description:
-          "Receive instant updates across multiple modules using Socket.IO.",
+          "Deliver instant notifications across enterprise modules using Socket.IO, ensuring users receive immediate updates on operational activities and workflow changes.",
       },
     ],
 
@@ -585,35 +585,35 @@ const projects = [
         id: 1,
         title: "Manual IT Helpdesk",
         description:
-          "Implemented a centralized ticket management system with structured workflows, priorities, assignments, status tracking, and operational monitoring.",
+          "Replaced unstructured WhatsApp-based support with a centralized helpdesk system featuring ticket categorization, priority management, technician assignment, SLA tracking, and complete ticket lifecycle monitoring.",
       },
 
       {
         id: 2,
         title: "Spreadsheet-Based Inventory",
         description:
-          "Developed an integrated inventory management module with stock transactions, movement history, warehouse tracking, and centralized reporting.",
+          "Replaced spreadsheet-based inventory records with a centralized inventory module supporting stock movement, warehouse management, transaction history, and real-time inventory visibility.",
       },
 
       {
         id: 3,
         title: "Manual Device Administration",
         description:
-          "Built a complete device lifecycle management module to manage company assets, ownership history, specifications, warranties, and maintenance records.",
+          "Introduced a centralized device management module to track hardware specifications, ownership history, warranty information, maintenance schedules, and asset lifecycle from procurement to retirement.",
       },
 
       {
         id: 4,
         title: "Disconnected Procurement Process",
         description:
-          "Digitalized procurement requests with structured workflows, approval tracking, status monitoring, and centralized documentation.",
+          "Digitized procurement workflows with standardized request submission, approval routing, purchasing status tracking, and centralized procurement documentation.",
       },
 
       {
         id: 5,
         title: "Scattered Operational Data",
         description:
-          "Unified helpdesk, inventory, procurement, notifications, dashboard, and audit trail into a single enterprise platform.",
+          "Integrated helpdesk, inventory, device management, procurement, dashboards, notifications, and audit trails into a single enterprise platform, providing consistent operational data and centralized management.",
       },
     ],
 
@@ -624,59 +624,67 @@ const projects = [
     lessonsLearned: [
       {
         id: 1,
-        title: "Reusable Components",
+        title: "Reusable Component Architecture",
         description:
-          "Reusable React components significantly accelerated development.",
+          "Designing reusable UI components and shared layouts significantly reduced development time, improved interface consistency, and simplified long-term maintenance as new enterprise modules were introduced.",
       },
 
       {
         id: 2,
-        title: "Service Layer",
-        description: "Separating business logic improved maintainability.",
+        title: "Separation of Business Logic",
+        description:
+          "Separating controllers, services, and repositories made the application easier to maintain, simplified debugging, and allowed new business features to be implemented without affecting existing modules.",
       },
 
       {
         id: 3,
-        title: "Modular Architecture",
-        description: "A modular architecture simplified future scalability.",
+        title: "Scalable Modular Architecture",
+        description:
+          "Building the application as independent business modules made future enhancements easier, reduced coupling between features, and provided a scalable foundation for enterprise growth.",
       },
     ],
 
     futureImprovements: [
       {
         id: 1,
-        title: "Email Notification",
-        description: "Automatic email notifications for important events.",
+        title: "Email Notification Service",
+        description:
+          "Integrate automated email notifications for ticket updates, procurement approvals, asset lifecycle events, and other critical operational activities to improve communication and response times.",
       },
 
       {
         id: 2,
         title: "Mobile Application",
-        description: "Provide mobile access for IT staff.",
+        description:
+          "Develop a mobile application that enables IT engineers to manage tickets, approve requests, scan assets, and receive real-time notifications while working remotely.",
       },
 
       {
         id: 3,
-        title: "Multi Company Support",
-        description: "Support multiple organizations within one platform.",
+        title: "Multi-Company Management",
+        description:
+          "Extend the platform to support multiple companies with isolated organizational structures, branches, departments, users, and configurable business rules within a single deployment.",
       },
 
       {
         id: 4,
         title: "Docker Containerization",
-        description: "Containerize the application for easier deployment.",
+        description:
+          "Package frontend, backend, and supporting services using Docker to simplify deployment, environment consistency, and infrastructure management across development and production.",
       },
 
       {
         id: 5,
         title: "CI/CD Pipeline",
-        description: "Automate build, testing, and deployment.",
+        description:
+          "Implement automated build, testing, quality assurance, and deployment pipelines to accelerate software delivery while improving reliability and release consistency.",
       },
 
       {
         id: 6,
         title: "Multi-Tenant Architecture",
-        description: "Support multiple tenants with isolated data.",
+        description:
+          "Redesign the platform with a scalable multi-tenant architecture, allowing multiple organizations to securely share the same application while maintaining complete data isolation.",
       },
     ],
   },

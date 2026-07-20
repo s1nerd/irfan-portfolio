@@ -13,11 +13,14 @@ export default function ProjectCardGrid({
   }
 
   const hoverBorder = {
-    blue: "hover:border-blue-500/30 hover:bg-blue-500/5",
-    emerald: "hover:border-emerald-500/30 hover:bg-emerald-500/5",
-    amber: "hover:border-amber-500/30 hover:bg-amber-500/5",
-    violet: "hover:border-violet-500/30 hover:bg-violet-500/5",
-    cyan: "hover:border-cyan-500/30 hover:bg-cyan-500/5",
+    blue: "hover:border-blue-500/30 hover:bg-blue-500/5 hover:shadow-blue-500/10",
+    emerald:
+      "hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:shadow-emerald-500/10",
+    amber:
+      "hover:border-amber-500/30 hover:bg-amber-500/5 hover:shadow-amber-500/10",
+    violet:
+      "hover:border-violet-500/30 hover:bg-violet-500/5 hover:shadow-violet-500/10",
+    cyan: "hover:border-cyan-500/30 hover:bg-cyan-500/5 hover:shadow-cyan-500/10",
   };
 
   return (
@@ -26,15 +29,19 @@ export default function ProjectCardGrid({
         <motion.article
           key={item.id}
           variants={fadeUp()}
-          className={`rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 ${
+          className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
             hoverBorder[hoverColor]
           }`}
         >
+          <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
           {renderIcon?.()}
 
-          <h3 className="mt-5 text-2xl font-bold text-white">{item.title}</h3>
+          <h3 className="mt-5 text-xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-white">
+            {item.title}
+          </h3>
 
-          <p className="mt-4 leading-8 text-slate-300">{item.description}</p>
+          <p className="mt-4 leading-7 text-slate-300">{item.description}</p>
         </motion.article>
       ))}
     </div>

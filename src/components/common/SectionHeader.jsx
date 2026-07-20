@@ -43,11 +43,11 @@ export default function SectionHeader({
   const variant = colorVariants[color] ?? colorVariants.blue;
 
   return (
-    <header className="space-y-5">
+    <header className="space-y-6">
       {badge && (
         <span
           className={clsx(
-            "inline-flex rounded-full border px-4 py-2 text-sm font-semibold uppercase tracking-[0.25em]",
+            "inline-flex items-center rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] transition-colors duration-300",
             variant.badge,
           )}
         >
@@ -55,18 +55,27 @@ export default function SectionHeader({
         </span>
       )}
 
-      <div className="flex items-start gap-4">
+      <div className="flex items-start gap-5">
         {Icon && (
-          <div className={clsx("rounded-2xl border p-3", variant.icon)}>
-            <Icon size={28} />
+          <div
+            className={clsx(
+              "flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border backdrop-blur-xl transition-all duration-300",
+              variant.icon,
+            )}
+          >
+            <Icon size={28} strokeWidth={2.2} />
           </div>
         )}
 
-        <div className="space-y-2">
-          <h2 className="text-4xl font-black text-white">{title}</h2>
+        <div className="min-w-0 space-y-3">
+          <h2 className="text-3xl font-black tracking-tight text-white md:text-4xl">
+            {title}
+          </h2>
 
           {description && (
-            <p className="max-w-3xl leading-8 text-slate-400">{description}</p>
+            <p className="max-w-3xl text-base leading-7 text-slate-400 md:text-lg">
+              {description}
+            </p>
           )}
         </div>
       </div>

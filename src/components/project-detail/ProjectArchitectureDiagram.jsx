@@ -18,19 +18,21 @@ export default function ProjectArchitectureDiagram({ project }) {
     <section className="space-y-10">
       <SectionHeader
         icon={Network}
-        badge="System Overview"
+        badge="Architecture"
         title="Architecture Diagram"
-        description="High-level visualization illustrating how the major components of the application communicate with each other."
+        description="High-level visualization illustrating how the major components communicate across the system."
         color="cyan"
       />
 
       {/* ================= Architecture Image ================= */}
-      <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl">
+      <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl transition-all duration-300 hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/10">
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
         {image ? (
           <img
             src={image}
             alt={`${project.title} Architecture Diagram`}
-            className="w-full object-cover"
+            className="w-full transition-transform duration-500 group-hover:scale-[1.015]"
           />
         ) : (
           <div className="flex aspect-video items-center justify-center bg-slate-900">
@@ -48,12 +50,12 @@ export default function ProjectArchitectureDiagram({ project }) {
       {/* ================= Overview & Flow ================= */}
       <div className="grid gap-8 lg:grid-cols-2">
         {/* ================= LEFT ================= */}
-        <article className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl">
-          <h3 className="text-2xl font-bold text-white">
+        <article className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-cyan-500/5 hover:shadow-xl hover:shadow-cyan-500/10">
+          <h3 className="text-2xl font-bold tracking-tight text-white">
             Architecture Overview
           </h3>
 
-          <p className="mt-5 leading-8 text-slate-300">{overview}</p>
+          <p className="mt-5 leading-7 text-slate-300">{overview}</p>
 
           {principles.length > 0 && (
             <>
@@ -67,21 +69,23 @@ export default function ProjectArchitectureDiagram({ project }) {
                 {principles.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-start gap-4 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-4 transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-500/10"
+                    className="group rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-500/10"
                   >
-                    <CheckCircle2
-                      size={22}
-                      className="mt-0.5 shrink-0 text-cyan-400"
-                    />
+                    <div className="flex items-start gap-4">
+                      <CheckCircle2
+                        size={22}
+                        className="mt-0.5 shrink-0 text-cyan-400 transition-transform duration-300 group-hover:scale-110"
+                      />
 
-                    <div>
-                      <h5 className="font-semibold text-cyan-300">
-                        {item.title}
-                      </h5>
+                      <div>
+                        <h5 className="font-semibold text-cyan-300">
+                          {item.title}
+                        </h5>
 
-                      <p className="mt-1 text-sm leading-6 text-slate-400">
-                        {item.description}
-                      </p>
+                        <p className="mt-1 text-sm leading-6 text-slate-400">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -91,18 +95,23 @@ export default function ProjectArchitectureDiagram({ project }) {
         </article>
 
         {/* ================= RIGHT ================= */}
-        <article className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl">
-          <h3 className="text-2xl font-bold text-white">System Flow</h3>
+        <article className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-300 hover:border-cyan-500/30 hover:bg-cyan-500/5 hover:shadow-xl hover:shadow-cyan-500/10">
+          <h3 className="text-2xl font-bold tracking-tight text-white">
+            System Flow
+          </h3>
 
           <div className="mt-6 flex flex-col items-center">
             {flow?.map((step, index) => (
               <div key={step.id} className="flex w-full flex-col items-center">
-                <div className="w-full rounded-2xl border border-cyan-500/20 bg-cyan-500/10 px-6 py-4 text-center font-semibold text-cyan-300 transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-500/15">
+                <div className="w-full rounded-2xl border border-cyan-500/20 bg-cyan-500/10 px-6 py-4 text-center font-semibold text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-500/15">
                   {step.title}
                 </div>
 
                 {index < flow.length - 1 && (
-                  <ArrowDown size={24} className="my-4 text-cyan-500" />
+                  <ArrowDown
+                    size={24}
+                    className="my-4 text-cyan-500 transition-transform duration-300 group-hover:translate-y-1"
+                  />
                 )}
               </div>
             ))}

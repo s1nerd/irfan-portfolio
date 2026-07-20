@@ -1,4 +1,4 @@
-import { GraduationCap } from "lucide-react";
+import { Brain, GraduationCap } from "lucide-react";
 
 import SectionHeader from "@/components/common/SectionHeader";
 import ProjectCardGrid from "@/components/project-detail/common/ProjectCardGrid";
@@ -12,9 +12,9 @@ export default function ProjectLessons({ project }) {
     <section className="space-y-10">
       <SectionHeader
         icon={GraduationCap}
-        badge="Project Experience"
+        badge="Lessons"
         title="Lessons Learned"
-        description="Every project contributes valuable insights that improve software architecture, development workflow, and future implementations."
+        description="Key insights and experiences gained throughout the project."
         color="blue"
       />
 
@@ -22,8 +22,11 @@ export default function ProjectLessons({ project }) {
         items={project.lessonsLearned}
         hoverColor="blue"
         renderIcon={() => (
-          <div className="inline-flex rounded-2xl border border-blue-500/20 bg-blue-500/10 p-3">
-            <GraduationCap size={22} className="text-blue-400" />
+          <div className="inline-flex rounded-2xl border border-blue-500/20 bg-blue-500/10 p-3 transition-all duration-300 group-hover:scale-105 group-hover:bg-blue-500/15">
+            <Brain
+              size={22}
+              className="text-blue-400 transition-transform duration-300 group-hover:scale-110"
+            />
           </div>
         )}
       />
